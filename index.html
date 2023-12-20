@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="newotpcss.css">
+  <title>OTP Generator</title>
+</head>
+<body>
+  <div class="container">
+    <h1>OTP Generator</h1>
+    <p id="otp1">Your OTP will appear here</p>
+    <button onclick="generateOTP()">Generate OTP</button>
+    <button onclick="verifyOTP()">Verify OTP</button>
+  </div>
+  <script>
+    function generateOTP() {
+    setInterval(function() {
+        let otp = Math.floor(100000 + Math.random() * 900000);
+        document.getElementById("otp1").innerText = otp;
+    }, 5000);
+}
+
+function verifyOTP() {
+    let inputOTP = prompt("Enter the OTP:");
+    let currentOTP = document.getElementById("otp1").innerText;
+
+    if (inputOTP === currentOTP) {
+        alert("Correct OTP");
+    } else {
+        alert("Incorrect OTP");
+    }
+}
+
+
+
+
+
+  </script>
+</body>
+</html>
